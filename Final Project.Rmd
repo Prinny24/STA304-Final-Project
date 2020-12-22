@@ -1,0 +1,155 @@
+---
+title: "An Analysis on the Effects of Voter Turnout in the Canadian 2019 Election"
+author: "Pablo Mercado"
+date: "12/22/2020"
+output: pdf_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(readr)
+library('devtools')
+library(janitor)
+library(tidyverse)
+library(labelled)
+library(cesR)
+library(tidyverse)
+library(brms)
+library(broom)
+library(lme4)
+library(knitr)
+
+sd <- read_csv("sd.csv")
+cd <- read_csv("cd.csv")
+
+#frequentist liberal
+
+model_lib <- glmer(vote_liberal ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_lib <- model_lib %>% 
+  predict(newdata = cd)
+
+cd$estimate_lib <- exp(cd$logodds_estimate_lib)/(1+exp(cd$logodds_estimate_lib))
+
+#frequentist conservative
+
+model_conservative <- glmer(vote_conservative ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_conservative <- model_conservative %>% 
+  predict(newdata = cd)
+
+cd$estimate_conservative <- exp(cd$logodds_estimate_conservative)/(1+exp(cd$logodds_estimate_conservative))
+
+#frequentist ndp
+
+model_ndp <- glmer(vote_ndp ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_ndp <- model_ndp %>% 
+  predict(newdata = cd)
+
+cd$estimate_ndp <- exp(cd$logodds_estimate_ndp)/(1+exp(cd$logodds_estimate_ndp))
+
+
+#frequentist bloc
+
+model_bloc <- glmer(vote_bloc ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_bloc <- model_bloc %>% 
+  predict(newdata = cd)
+
+cd$estimate_bloc <- exp(cd$logodds_estimate_bloc)/(1+exp(cd$logodds_estimate_bloc))
+
+
+#frequentist green
+
+model_green <- glmer(vote_green ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_green <- model_green %>% 
+  predict(newdata = cd)
+
+cd$estimate_green <- exp(cd$logodds_estimate_green)/(1+exp(cd$logodds_estimate_green))
+
+
+#frequentist people
+
+model_people <- glmer(vote_people ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_people <- model_people %>% 
+  predict(newdata = cd)
+
+cd$estimate_people <- exp(cd$logodds_estimate_people)/(1+exp(cd$logodds_estimate_people))
+
+
+#frequentist other
+
+model_other <- glmer(vote_other ~ age + sex + educ + (1|province), data = sd, family = binomial)
+
+cd$logodds_estimate_other <- model_other %>% 
+  predict(newdata = cd)
+
+cd$estimate_other <- exp(cd$logodds_estimate_other)/(1+exp(cd$logodds_estimate_other))
+
+```
+
+# Abstract:
+
+
+
+
+# Keywords:
+
+
+
+# Introduction:
+
+
+
+
+# Methodology:
+## Data:
+
+
+
+
+## Model:
+
+
+
+
+# Results:
+
+
+
+
+# Discussion:
+
+
+
+## Weaknesses: 
+
+
+
+
+## Next Steps:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
