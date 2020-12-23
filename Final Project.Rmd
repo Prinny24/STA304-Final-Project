@@ -260,7 +260,19 @@ As a quick synopsis, this paper tried to find the importance and effects of full
 
 Firstly, the models mostly showed that the variables chosen were statistically significant. This is because the p-values of the variables are below 0.05. The variable that was most significant across all models was age. This means that age is a good indicator of how an Eligible Canadian would vote. The variable that would sometimes not be significant was education. This means that education is not a reliable measure of voter behavior. This was especially seen in the models for the Green Party and the Conservative Party. For the poststratification step, the results of applying the model to the GSS data can be seen in Table 5. 
 
-Graph 1, which was created by the predicted results of the MRP, and graph 2, which was created using the real results of the 2019 election, can be compared to find the effects of voter turnout. Visually, the 2 bigger parties, liberal and conservative, have less representation, and the seats are more spread out to other parties. This means that voter participation clearly affects the results of the 2019 Canadian election. If the predicted House of Commons were real, this would mean the liberal and conservative parties would have less power and that they would need to work together with other parties to pass legislation. In conclusion, voter turnout is one of the most important factors for any election, and it is important for voters to vote so that they can be properly represented in Government.
+Graph 1, which was created by the predicted results of the MRP, and graph 2, which was created using the real results of the 2019 election, can be compared to find the effects of voter turnout. Visually, the 2 bigger parties, liberal and conservative, have less representation, and the seats are more spread out to other parties. Table 6 shows the difference in seats from predicted to real results.This means that voter participation clearly affects the results of the 2019 Canadian election. If the predicted House of Commons were real, this would mean the liberal and conservative parties would have less power and that they would need to work together with other parties to pass legislation. In conclusion, voter turnout is one of the most important factors for any election, and it is important for voters to vote so that they can be properly represented in Government.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+predict_vote <- data.frame("Party" = c("Liberal Party", "Conservative Party", "NDP",
+                                       "Bloc Québécois", "Green Party", "People’s Party", 
+                                       "Other"),
+                           "Predicted Seats" = c(119,106,52,16,34,8,3),
+                           "Real Seats" = c(157,121,24,32,3,0,1))
+
+kable(predict_vote, caption = "Party Seating in the House of Commons")
+
+```
 
 ## Weaknesses: 
 
